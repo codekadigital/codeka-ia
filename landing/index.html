@@ -9,7 +9,7 @@
 <meta property="og:title" content="C.IA — Codeka IA · La IA te devuelve tus horas">
 <meta property="og:description" content="Automatización con IA para tu negocio: precios públicos, entrega en días y todo queda siendo tuyo.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FA5D29'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23fff' text-anchor='middle'%3EC.%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23039'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23fff' text-anchor='middle'%3EC.%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap">
@@ -22,7 +22,7 @@
     --color-primary:#222;
     --color-secondary:#4e4e4e;
     --color-gray:#a7a7a7;
-    --color-orange:#FA5D29;
+    --color-accent:#039;
     --color-blue:#039;
     --alert-yellow:#FFF083;
     --alert-green:#E2F4E9;
@@ -46,8 +46,8 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  ::selection{background:var(--color-orange);color:#fff}
-  a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var(--color-orange);outline-offset:3px}
+  ::selection{background:var(--color-accent);color:#fff}
+  a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}
 
   .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
   @media(max-width:640px){.wrap{padding:0 18px}}
@@ -56,7 +56,7 @@
   h1,h2,h3{font-weight:500;line-height:1.02;letter-spacing:-.035em;text-wrap:balance}
   h2{font-size:clamp(34px,4.6vw,60px);letter-spacing:-.04em}
   .lede{color:var(--color-secondary);max-width:56ch;font-size:18px;letter-spacing:-.01em}
-  .hi{color:var(--color-orange)}
+  .hi{color:var(--color-accent)}
 
   /* cabecera de sección estilo awwwards: título + meta, línea superior */
   .sec-head{
@@ -80,8 +80,8 @@
   .button:hover{transform:scale(1.03)}
   .button--dark{background:var(--bg-secondary);color:#fff}
   .button--dark:hover{background:#383838}
-  .button--orange{background:var(--color-orange);color:#fff}
-  .button--orange:hover{background:#e14e1f}
+  .button--accent{background:var(--color-accent);color:#fff}
+  .button--accent:hover{background:#002d86}
   .button--outline{background:transparent;color:var(--color-primary);border-color:var(--border-soft)}
   .button--outline:hover{border-color:var(--color-primary)}
   .button--white{background:#fff;color:var(--color-primary)}
@@ -99,7 +99,7 @@
   header.top.hide{transform:translateY(-101%)}
   .top-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 32px;height:72px;max-width:1440px;margin:0 auto}
   .logo{font-size:24px;font-weight:800;letter-spacing:-.05em;color:var(--color-primary);text-decoration:none}
-  .logo b{color:var(--color-orange)}
+  .logo b{color:var(--color-accent)}
   .top-nav{display:flex;gap:30px;align-items:center}
   .top-nav a{font-size:14px;font-weight:500;letter-spacing:-.01em;color:var(--color-primary);text-decoration:none;transition:color .2s}
   .top-nav a:hover{color:var(--color-gray)}
@@ -133,10 +133,10 @@
   @media(max-width:860px){.cover{grid-template-columns:1fr}}
   .cover::after{
     content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;
-    background:radial-gradient(circle,rgba(250,93,41,.5),transparent 65%);pointer-events:none;
+    background:radial-gradient(circle,rgba(0,51,153,.5),transparent 65%);pointer-events:none;
   }
   .cover .badge{
-    display:inline-flex;align-items:center;gap:8px;background:var(--color-orange);color:#fff;
+    display:inline-flex;align-items:center;gap:8px;background:var(--color-accent);color:#fff;
     font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
     padding:8px 14px;border-radius:99px;margin-bottom:22px;
   }
@@ -160,7 +160,7 @@
   .ticker-track{display:flex;gap:48px;white-space:nowrap;width:max-content;animation:slide 32s linear infinite;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--color-primary)}
   .ticker:hover .ticker-track{animation-play-state:paused}
   @keyframes slide{to{transform:translateX(-50%)}}
-  .ticker i{color:var(--color-orange);font-style:normal;margin-right:8px}
+  .ticker i{color:var(--color-accent);font-style:normal;margin-right:8px}
 
   /* ============ PROBLEMA ============ */
   .tareas{display:flex;flex-wrap:wrap;gap:10px;max-width:880px}
@@ -191,7 +191,7 @@
     font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
     padding:6px 12px;border-radius:99px;background:var(--bg-primary);color:var(--color-secondary);
   }
-  .paso .num .tag.hot{background:var(--color-orange);color:#fff}
+  .paso .num .tag.hot{background:var(--color-accent);color:#fff}
   .paso h3{font-size:20px;letter-spacing:-.03em;margin-bottom:10px}
   .paso p{font-size:14px;color:var(--color-secondary);line-height:1.55}
 
@@ -210,7 +210,7 @@
     border:1px solid var(--border-soft);display:flex;align-items:center;justify-content:center;
     font-size:15px;transition:all .25s var(--ease);
   }
-  .sol:hover .arrow{background:var(--color-orange);border-color:var(--color-orange);color:#fff;transform:rotate(45deg)}
+  .sol:hover .arrow{background:var(--color-accent);border-color:var(--color-accent);color:#fff;transform:rotate(45deg)}
   .sol h3{font-size:20px;letter-spacing:-.03em;margin-bottom:10px;max-width:9ch}
   .sol p{font-size:14px;color:var(--color-secondary);flex:1}
   .sol .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
@@ -232,7 +232,7 @@
   .pack:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.08)}
   .pack.star{background:var(--bg-dark);color:#fff;border-color:var(--bg-dark)}
   .pack .badge{
-    position:absolute;top:24px;right:24px;background:var(--color-orange);color:#fff;
+    position:absolute;top:24px;right:24px;background:var(--color-accent);color:#fff;
     font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
     padding:7px 13px;border-radius:99px;
   }
@@ -243,7 +243,7 @@
   .pack ul{list-style:none;margin:24px 0 30px;flex:1}
   .pack li{padding:10px 0 10px 26px;position:relative;font-size:14px;color:var(--color-secondary);border-bottom:1px solid var(--border-gray)}
   .pack.star li{color:#dedede;border-color:rgba(255,255,255,.12)}
-  .pack li::before{content:"→";position:absolute;left:0;color:var(--color-orange);font-weight:600}
+  .pack li::before{content:"→";position:absolute;left:0;color:var(--color-accent);font-weight:600}
   .mensual{
     margin:28px auto 0;max-width:820px;background:var(--bg-white);border:1px solid var(--border-gray);
     border-radius:var(--rounded-large);padding:26px 30px;
@@ -252,13 +252,13 @@
   .mensual p{font-size:14px;color:var(--color-secondary);max-width:52ch}
   .mensual b{display:block;font-size:18px;letter-spacing:-.02em;color:var(--color-primary);margin-bottom:4px}
   .nota{max-width:680px;margin:36px auto 0;text-align:center;font-size:13px;color:var(--color-gray);line-height:1.7}
-  .nota b{color:var(--color-orange)}
+  .nota b{color:var(--color-accent)}
 
   /* ============ TABLA DIFERENCIAS (borde negro estilo awwwards) ============ */
   .dif table{width:100%;border-collapse:collapse;background:var(--bg-white);border-radius:var(--rounded-normal);overflow:hidden}
   .dif th,.dif td{padding:18px 24px;text-align:left;font-size:15px;letter-spacing:-.01em;vertical-align:top;border-bottom:1px solid var(--border-gray)}
   .dif th{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--bg-secondary);color:#fff}
-  .dif th:last-child{color:var(--color-orange)}
+  .dif th:last-child{color:var(--color-accent)}
   .dif td:first-child{color:var(--color-gray)}
   .dif td:last-child{font-weight:600}
   .dif tbody tr{transition:background .15s}
@@ -279,8 +279,8 @@
     display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--color-primary);
     transition:all .25s var(--ease);flex-shrink:0;
   }
-  .faq details[open] summary::after{transform:rotate(45deg);background:var(--color-orange);border-color:var(--color-orange);color:#fff}
-  .faq summary:hover{color:var(--color-orange)}
+  .faq details[open] summary::after{transform:rotate(45deg);background:var(--color-accent);border-color:var(--color-accent);color:#fff}
+  .faq summary:hover{color:var(--color-accent)}
   .faq details p{padding:0 28px 26px;color:var(--color-secondary);max-width:72ch;font-size:15px}
 
   /* ============ MARQUESINA GRANDE ============ */
@@ -290,14 +290,14 @@
     font-size:clamp(52px,8vw,104px);font-weight:600;letter-spacing:-.045em;line-height:1;
     color:var(--color-primary);padding-right:.55em;
   }
-  .mega span i{font-style:normal;color:var(--color-orange)}
+  .mega span i{font-style:normal;color:var(--color-accent)}
   .mega:hover .mega-track{animation-play-state:paused}
 
   /* ============ BANNER NARANJA (estilo banner awwwards) ============ */
   .banner-wrap{padding:0 32px;max-width:1440px;margin:0 auto 90px}
   @media(max-width:640px){.banner-wrap{padding:0 14px}}
   .banner{
-    background:var(--color-orange);color:#fff;border-radius:var(--rounded-large);
+    background:var(--color-accent);color:#fff;border-radius:var(--rounded-large);
     padding:clamp(40px,7vw,90px) clamp(24px,5vw,72px);text-align:center;position:relative;overflow:hidden;
   }
   .banner::before{
@@ -321,13 +321,13 @@
     font-size:clamp(90px,22vw,300px);font-weight:800;letter-spacing:-.06em;line-height:.82;
     color:#fff;text-align:center;user-select:none;
   }
-  .foot-logo b{color:var(--color-orange)}
+  .foot-logo b{color:var(--color-accent)}
   .foot-bottom{
     display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;
     font-size:12.5px;margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);
   }
   .foot-bottom a{color:#fff;text-decoration:none}
-  .foot-bottom a:hover{color:var(--color-orange)}
+  .foot-bottom a:hover{color:var(--color-accent)}
 
   /* WhatsApp flotante */
   .wa-float{
@@ -336,7 +336,7 @@
     background:var(--bg-secondary);color:#fff;text-decoration:none;font-size:14px;font-weight:600;
     box-shadow:0 12px 30px rgba(0,0,0,.18);transition:transform .2s var(--ease),background .2s;
   }
-  .wa-float:hover{transform:scale(1.05);background:var(--color-orange)}
+  .wa-float:hover{transform:scale(1.05);background:var(--color-accent)}
   @media(max-width:560px){.wa-float{right:14px;bottom:14px}}
 
   /* reveal on scroll */
@@ -381,7 +381,7 @@
       <p class="lede rise d1">Automatizo las tareas repetitivas de tu negocio con inteligencia artificial: mensajes, contenido, cotizaciones, seguimiento. <strong>Funcionando en días, con precio claro, y todo queda siendo tuyo.</strong></p>
       <div class="hero-ctas rise d2">
         <!-- TODO: reemplaza con tu enlace real de agenda -->
-        <a class="button button--orange button--large" href="#contacto">Agenda tu diagnóstico gratis</a>
+        <a class="button button--accent button--large" href="#contacto">Agenda tu diagnóstico gratis</a>
         <a class="button button--outline button--large" href="https://wa.me/34660026187">WhatsApp</a>
       </div>
     </div>
@@ -523,7 +523,7 @@
           <li>Formación en vivo de 1 h (grabada)</li>
           <li>2 semanas de ajustes incluidas</li>
         </ul>
-        <a class="button button--orange" href="#contacto">Quiero el mío</a>
+        <a class="button button--accent" href="#contacto">Quiero el mío</a>
       </div>
       <div class="pack rv">
         <h3>Negocio en Automático</h3>
