@@ -131,6 +131,11 @@
     display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
   }
   @media(max-width:860px){.cover{grid-template-columns:1fr}}
+  .cover>*{position:relative;z-index:1}
+  .matrix{
+    position:absolute;inset:0;width:100%;height:100%;z-index:0;
+    opacity:.34;pointer-events:none;
+  }
   .cover::after{
     content:"";position:absolute;right:-140px;top:-140px;width:420px;height:420px;border-radius:50%;
     background:radial-gradient(circle,rgba(0,51,153,.5),transparent 65%);pointer-events:none;
@@ -312,7 +317,9 @@
   .banner .alt a{color:#fff;font-weight:600}
 
   /* ============ FOOTER ============ */
-  footer{background:var(--bg-dark);color:#a7a7a7;padding:80px 0 30px;border-radius:var(--rounded-large) var(--rounded-large) 0 0}
+  footer{background:var(--bg-dark);color:#a7a7a7;padding:80px 0 30px;border-radius:var(--rounded-large) var(--rounded-large) 0 0;position:relative;overflow:hidden}
+  footer .matrix{opacity:.2}
+  footer .wrap{position:relative;z-index:1}
   .foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:70px}
   .foot-grid .col h4{color:#fff;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
   .foot-grid .col a{display:block;color:#a7a7a7;text-decoration:none;font-size:14px;padding:5px 0;transition:color .2s}
@@ -388,6 +395,7 @@
 
     <!-- portada: tarjeta de cobertura -->
     <div class="cover rise d3" aria-label="Ejemplo de horas recuperadas en una semana">
+      <canvas class="matrix" aria-hidden="true"></canvas>
       <div>
         <span class="badge">● Semana real</span>
         <div class="big"><span id="count">0</span> h<small>devueltas a tu semana con automatización + IA</small></div>
@@ -627,6 +635,7 @@
 </div>
 
 <footer>
+  <canvas class="matrix" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="foot-grid">
       <div class="col">
@@ -696,6 +705,46 @@
     nav.classList.toggle('hide', y > 320 && y > lastY);
     lastY = y;
   }, {passive:true});
+
+  // lluvia matrix en las zonas oscuras
+  if(!reduced){
+    const CHARS = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ01CIA<>/{}=+*';
+    document.querySelectorAll('canvas.matrix').forEach(canvas=>{
+      const ctx = canvas.getContext('2d');
+      let cols, drops, fs = 15, visible = false, last = 0;
+
+      const size = ()=>{
+        canvas.width = canvas.offsetWidth * devicePixelRatio;
+        canvas.height = canvas.offsetHeight * devicePixelRatio;
+        ctx.scale(devicePixelRatio, devicePixelRatio);
+        cols = Math.floor(canvas.offsetWidth / fs);
+        drops = Array.from({length: cols}, ()=>Math.floor(Math.random() * -40));
+        ctx.font = fs + 'px monospace';
+      };
+      size();
+      addEventListener('resize', size, {passive:true});
+
+      const vio = new IntersectionObserver(es=>{ visible = es[0].isIntersecting; });
+      vio.observe(canvas);
+
+      const draw = (t)=>{
+        requestAnimationFrame(draw);
+        if(!visible || t - last < 55) return;   // ~18 fps: fluido y ligero
+        last = t;
+        ctx.fillStyle = 'rgba(18,18,18,.12)';
+        ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+        for(let i = 0; i < cols; i++){
+          const ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+          const y = drops[i] * fs;
+          ctx.fillStyle = Math.random() > .92 ? '#E2F4E9' : '#AAEEC4';  // cabeza brillante ocasional
+          ctx.fillText(ch, i * fs, y);
+          if(y > canvas.offsetHeight && Math.random() > .975) drops[i] = 0;
+          drops[i]++;
+        }
+      };
+      requestAnimationFrame(draw);
+    });
+  }
 })();
 </script>
 </body>
